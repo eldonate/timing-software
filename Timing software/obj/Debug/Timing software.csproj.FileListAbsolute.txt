@@ -1,0 +1,19 @@
+C:\Users\Miltos\source\repos\Timing software\Timing software\bin\Debug\Timing software.exe.config
+C:\Users\Miltos\source\repos\Timing software\Timing software\bin\Debug\Timing software.exe
+C:\Users\Miltos\source\repos\Timing software\Timing software\bin\Debug\Timing software.pdb
+C:\Users\Miltos\source\repos\Timing software\Timing software\obj\Debug\Timing software.csproj.AssemblyReference.cache
+C:\Users\Miltos\source\repos\Timing software\Timing software\obj\Debug\Timing_software.Form1.resources
+C:\Users\Miltos\source\repos\Timing software\Timing software\obj\Debug\Timing_software.Properties.Resources.resources
+C:\Users\Miltos\source\repos\Timing software\Timing software\obj\Debug\Timing software.csproj.GenerateResource.cache
+C:\Users\Miltos\source\repos\Timing software\Timing software\obj\Debug\Timing software.csproj.CoreCompileInputs.cache
+C:\Users\Miltos\source\repos\Timing software\Timing software\obj\Debug\Timing software.exe
+C:\Users\Miltos\source\repos\Timing software\Timing software\obj\Debug\Timing software.pdb
+C:\Users\Miltos\source\repos\Timing software\Timing software\bin\Debug\FluentFTP.dll
+C:\Users\Miltos\source\repos\Timing software\Timing software\bin\Debug\Rebex.Common.dll
+C:\Users\Miltos\source\repos\Timing software\Timing software\bin\Debug\Rebex.Ftp.dll
+C:\Users\Miltos\source\repos\Timing software\Timing software\bin\Debug\Rebex.Networking.dll
+C:\Users\Miltos\source\repos\Timing software\Timing software\bin\Debug\FluentFTP.xml
+C:\Users\Miltos\source\repos\Timing software\Timing software\bin\Debug\Rebex.Common.xml
+C:\Users\Miltos\source\repos\Timing software\Timing software\bin\Debug\Rebex.Ftp.xml
+C:\Users\Miltos\source\repos\Timing software\Timing software\bin\Debug\Rebex.Networking.xml
+C:\Users\Miltos\source\repos\Timing software\Timing software\obj\Debug\Timing s.04DF71C7.Up2Date
