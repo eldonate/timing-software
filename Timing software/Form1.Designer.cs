@@ -52,8 +52,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.newtagcheck = new System.Windows.Forms.Button();
             this.autoupdate = new System.Windows.Forms.CheckBox();
-            this.racestart = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.participantsgrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableTags)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startingrfid)).BeginInit();
@@ -286,36 +284,11 @@
             this.autoupdate.UseVisualStyleBackColor = true;
             this.autoupdate.CheckedChanged += new System.EventHandler(this.autoupdate_CheckedChanged);
             // 
-            // racestart
-            // 
-            this.racestart.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.racestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.racestart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.racestart.Location = new System.Drawing.Point(15, 119);
-            this.racestart.Name = "racestart";
-            this.racestart.Size = new System.Drawing.Size(104, 23);
-            this.racestart.TabIndex = 22;
-            this.racestart.Text = "START RACE";
-            this.racestart.UseVisualStyleBackColor = false;
-            this.racestart.Click += new System.EventHandler(this.racestart_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(780, 415);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 23;
-            this.button4.Text = "Telnet Alien";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 450);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.racestart);
             this.Controls.Add(this.autoupdate);
             this.Controls.Add(this.newtagcheck);
             this.Controls.Add(this.label5);
@@ -374,8 +347,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button newtagcheck;
         private System.Windows.Forms.CheckBox autoupdate;
-        private System.Windows.Forms.Button racestart;
-        private System.Windows.Forms.Button button4;
     }
 }
 

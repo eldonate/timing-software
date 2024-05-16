@@ -13,7 +13,6 @@ using System.Net;
 using System.Threading;
 using System.Diagnostics;
 
-
 namespace Timing_software
 {
     public partial class Form1 : Form
@@ -360,7 +359,7 @@ namespace Timing_software
                 htmlBuilder.AppendLine("</html>");
 
                 // Save the HTML content to a file
-                string filePath = @"D:\rfid testing\exported_data.html";
+                string filePath = @"exported_data.html";
                 File.WriteAllText(filePath, htmlBuilder.ToString());
 
                 MessageBox.Show("Data exported to HTML successfully. File saved as: " + filePath);
@@ -487,9 +486,18 @@ namespace Timing_software
         {
             try
             {
-                string ftpUrl = "ftp://racetime.gr/"; // FTP server URL
-                string username = "racetime_results_upload"; // FTP username
-                string password = "nxWk14~71"; // FTP password
+                string credentialsFilePath = Path.Combine(Application.StartupPath, "ftp_credentials.txt");
+                var credentials = ReadCredentials(credentialsFilePath);
+
+                if (credentials == null)
+                {
+                    MessageBox.Show("Error reading FTP credentials.");
+                    return;
+                }
+
+                string ftpUrl = credentials["ftpUrl"];
+                string username = credentials["username"];
+                string password = credentials["password"];
 
                 string eventName = eventname.Text.Trim(); // Get the value from the eventname textbox
 
@@ -499,7 +507,7 @@ namespace Timing_software
                     return;
                 }
 
-                string filePath = @"D:\rfid testing\exported_data.html"; // Path of the file to upload
+                string filePath = @"exported_data.html"; // Path of the file to upload
                 string ftpFilePath = $"{ftpUrl}/{eventName}.html"; // Construct the file path on the FTP server using the event name
 
                 // Upload file to FTP server
@@ -545,7 +553,29 @@ namespace Timing_software
                 MessageBox.Show("Error uploading file: " + ex.Message);
             }
         }
+        private Dictionary<string, string> ReadCredentials(string filePath)
+        {
+            try
+            {
+                var lines = File.ReadAllLines(filePath);
+                var credentials = new Dictionary<string, string>();
 
+                foreach (var line in lines)
+                {
+                    var parts = line.Split('=');
+                    if (parts.Length == 2)
+                    {
+                        credentials[parts[0].Trim()] = parts[1].Trim();
+                    }
+                }
+
+                return credentials;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         private void newtagcheck_Click(object sender, EventArgs e)
         {
@@ -624,16 +654,10 @@ namespace Timing_software
         private void racestart_Click(object sender, EventArgs e)
         {
             //opens the timing html
-            string pathToHtmlFile = @"D:\rfid testing\index.html";
+            string pathToHtmlFile = @"timing/index.html";
             Process.Start(pathToHtmlFile);
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-                ProcessStartInfo startInfo = new ProcessStartInfo();
-                startInfo.FileName = @"D:\rfid testing\telnet.exe";
-                startInfo.Arguments = "192.168.1.150"; // Replace "192.168.1.150" with the actual IP address
-                Process.Start(startInfo);
-        }
+      
     }
 }
