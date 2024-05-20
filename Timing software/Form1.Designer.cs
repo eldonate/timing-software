@@ -52,6 +52,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.newtagcheck = new System.Windows.Forms.Button();
             this.autoupdate = new System.Windows.Forms.CheckBox();
+            this.btnExportToTxt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.participantsgrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableTags)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startingrfid)).BeginInit();
@@ -284,11 +285,22 @@
             this.autoupdate.UseVisualStyleBackColor = true;
             this.autoupdate.CheckedChanged += new System.EventHandler(this.autoupdate_CheckedChanged);
             // 
+            // btnExportToTxt
+            // 
+            this.btnExportToTxt.Location = new System.Drawing.Point(467, 363);
+            this.btnExportToTxt.Name = "btnExportToTxt";
+            this.btnExportToTxt.Size = new System.Drawing.Size(75, 23);
+            this.btnExportToTxt.TabIndex = 22;
+            this.btnExportToTxt.Text = "Export Raw";
+            this.btnExportToTxt.UseVisualStyleBackColor = true;
+            this.btnExportToTxt.Click += new System.EventHandler(this.btnExportToTxt_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 450);
+            this.Controls.Add(this.btnExportToTxt);
             this.Controls.Add(this.autoupdate);
             this.Controls.Add(this.newtagcheck);
             this.Controls.Add(this.label5);
@@ -347,6 +359,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button newtagcheck;
         private System.Windows.Forms.CheckBox autoupdate;
+        private System.Windows.Forms.Button btnExportToTxt;
     }
 }
 

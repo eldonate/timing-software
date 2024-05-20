@@ -507,13 +507,21 @@ namespace Timing_software
                     return;
                 }
 
-                string filePath = @"exported_data.html"; // Path of the file to upload
-                string ftpFilePath = $"{ftpUrl}/{eventName}.html"; // Construct the file path on the FTP server using the event name
+                // Paths of the files to upload
+                string htmlFilePath = @"exported_data.html"; // Path of the HTML file
+                string txtFilePath = $"{eventName}.txt"; // Path of the text file, assuming it was created in the previous step
 
-                // Upload file to FTP server
-                UploadFileToFtp(filePath, ftpFilePath, username, password);
+                // Construct the file paths on the FTP server using the event name
+                string ftpHtmlFilePath = $"{ftpUrl}/{eventName}.html";
+                string ftpTxtFilePath = $"{ftpUrl}/{eventName}.txt";
 
-                MessageBox.Show("File uploaded successfully with name: " + eventName + ".html");
+                // Upload HTML file to FTP server
+                UploadFileToFtp(htmlFilePath, ftpHtmlFilePath, username, password);
+
+                // Upload text file to FTP server
+                UploadFileToFtp(txtFilePath, ftpTxtFilePath, username, password);
+
+                MessageBox.Show("Files uploaded successfully with names: " + eventName + ".html and " + eventName + ".txt");
             }
             catch (Exception ex)
             {
@@ -553,6 +561,7 @@ namespace Timing_software
                 MessageBox.Show("Error uploading file: " + ex.Message);
             }
         }
+
         private Dictionary<string, string> ReadCredentials(string filePath)
         {
             try
@@ -658,6 +667,51 @@ namespace Timing_software
             Process.Start(pathToHtmlFile);
         }
 
-      
+        private void btnExportToTxt_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Check if the DataGridView has any data
+                if (dataTableTags.DataSource is DataTable dataTable && dataTable.Rows.Count > 0)
+                {
+                    // Get the event name from the TextBox
+                    string eventName = eventname.Text.Trim();
+                    if (string.IsNullOrEmpty(eventName))
+                    {
+                        MessageBox.Show("Please enter a valid event name.");
+                        return;
+                    }
+
+                    // Define the file path to save the exported data using the event name
+                    string exportFilePath = $"{eventName}.txt";
+
+                    // Create and open a StreamWriter to write to the file
+                    using (StreamWriter sw = new StreamWriter(exportFilePath))
+                    {
+                        // Write the header row (column names)
+                        var columnNames = dataTable.Columns.Cast<DataColumn>().Select(column => column.ColumnName);
+                        sw.WriteLine(string.Join(",", columnNames));
+
+                        // Write each row of data
+                        foreach (DataRow row in dataTable.Rows)
+                        {
+                            var fields = row.ItemArray.Select(field => field.ToString());
+                            sw.WriteLine(string.Join(",", fields));
+                        }
+                    }
+
+                    // Inform the user that the export was successful
+                    MessageBox.Show("Data exported successfully to " + exportFilePath);
+                }
+                else
+                {
+                    MessageBox.Show("No data available to export.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error exporting data: " + ex.Message);
+            }
+        }
     }
 }
