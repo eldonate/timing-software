@@ -270,10 +270,11 @@ namespace Timing_software
                                             MessageBox.Show($"Failed to parse finish time from line: {line}");
                                         }
                                     }
-                                    else
-                                    {
-                                        MessageBox.Show($"No participant found for RFID: {rfidPart}");
-                                    }
+                                   //notification if tag is not found
+                                  // else
+                                  //  {
+                                  //      MessageBox.Show($"No participant found for RFID: {rfidPart}");
+                                  //  }
                                 }
                             }
                             else
