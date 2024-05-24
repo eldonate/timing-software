@@ -53,6 +53,10 @@
             this.newtagcheck = new System.Windows.Forms.Button();
             this.autoupdate = new System.Windows.Forms.CheckBox();
             this.btnExportToTxt = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.raceid = new System.Windows.Forms.TextBox();
+            this.racecategory = new System.Windows.Forms.TextBox();
+            this.Category = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.participantsgrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableTags)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startingrfid)).BeginInit();
@@ -143,7 +147,7 @@
             // 
             // startingrfid
             // 
-            this.startingrfid.Location = new System.Drawing.Point(12, 84);
+            this.startingrfid.Location = new System.Drawing.Point(12, 148);
             this.startingrfid.Maximum = new decimal(new int[] {
             2000,
             0,
@@ -166,7 +170,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 68);
+            this.label1.Location = new System.Drawing.Point(12, 132);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 13);
             this.label1.TabIndex = 9;
@@ -295,11 +299,47 @@
             this.btnExportToTxt.UseVisualStyleBackColor = true;
             this.btnExportToTxt.Click += new System.EventHandler(this.btnExportToTxt_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 70);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 13);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Race ID";
+            // 
+            // raceid
+            // 
+            this.raceid.Location = new System.Drawing.Point(84, 67);
+            this.raceid.Name = "raceid";
+            this.raceid.Size = new System.Drawing.Size(100, 20);
+            this.raceid.TabIndex = 24;
+            // 
+            // racecategory
+            // 
+            this.racecategory.Location = new System.Drawing.Point(84, 94);
+            this.racecategory.Name = "racecategory";
+            this.racecategory.Size = new System.Drawing.Size(100, 20);
+            this.racecategory.TabIndex = 25;
+            // 
+            // Category
+            // 
+            this.Category.AutoSize = true;
+            this.Category.Location = new System.Drawing.Point(12, 101);
+            this.Category.Name = "Category";
+            this.Category.Size = new System.Drawing.Size(49, 13);
+            this.Category.TabIndex = 26;
+            this.Category.Text = "Category";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 450);
+            this.Controls.Add(this.Category);
+            this.Controls.Add(this.racecategory);
+            this.Controls.Add(this.raceid);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnExportToTxt);
             this.Controls.Add(this.autoupdate);
             this.Controls.Add(this.newtagcheck);
@@ -360,6 +400,10 @@
         private System.Windows.Forms.Button newtagcheck;
         private System.Windows.Forms.CheckBox autoupdate;
         private System.Windows.Forms.Button btnExportToTxt;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox raceid;
+        private System.Windows.Forms.TextBox racecategory;
+        private System.Windows.Forms.Label Category;
     }
 }
 

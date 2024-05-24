@@ -48,6 +48,7 @@ namespace Timing_software
             dataTable.Columns.Add("birthday", typeof(DateTime));
             dataTable.Columns.Add("age", typeof(int));
             dataTable.Columns.Add("rfidbib", typeof(int));
+            dataTable.Columns.Add("racecategory", typeof(string));
 
             // Bind DataTable to DataGridView
             participantsgrid.DataSource = dataTable;
@@ -74,7 +75,8 @@ namespace Timing_software
                             row["name"] = data[1];
                             row["lastname"] = data[2];
                             row["gender"] = data[3];
-
+                            string raceCategory = racecategory.Text.Trim(); // Get the value from the racecategory textbox
+                            row["racecategory"] = raceCategory; // Set the value in the "racecategory" column
                             // Parse birthdate with different formats
                             string[] dateFormats = { "dd/MM/yyyy", "d/M/yyyy" };
                             DateTime birthdate;
@@ -204,6 +206,7 @@ namespace Timing_software
                 newDataGridDataTable.Columns.Add("Age", typeof(int)); // Add Age column
                 newDataGridDataTable.Columns.Add("Finish Time", typeof(TimeSpan)); // Change type to TimeSpan
                 newDataGridDataTable.Columns.Add("Gender", typeof(string)); // Add Gender column
+                newDataGridDataTable.Columns.Add("Race Category", typeof(string)); // Add Race Category column
 
                 // Read the log file using FileStream with file-sharing mode to allow reading even when the file is open by another app
                 string filePath = @"output.txt";
@@ -259,8 +262,11 @@ namespace Timing_software
                                             // Add Gender information
                                             string gender = participantRow["gender"].ToString();
 
+                                            // Get race category from textbox
+                                            string raceCategory = racecategory.Text.Trim();
+
                                             // Add a row to newDataGridDataTable
-                                            newDataGridDataTable.Rows.Add(participantId, firstName, lastName, rfidPart, birthdate, age, finishTime, gender);
+                                            newDataGridDataTable.Rows.Add(participantId, firstName, lastName, rfidPart, birthdate, age, finishTime, gender, raceCategory);
 
                                             // Add participant ID to processed set
                                             processedParticipantIds.Add(participantId.ToString());
@@ -270,11 +276,11 @@ namespace Timing_software
                                             MessageBox.Show($"Failed to parse finish time from line: {line}");
                                         }
                                     }
-                                   //notification if tag is not found
-                                  // else
-                                  //  {
-                                  //      MessageBox.Show($"No participant found for RFID: {rfidPart}");
-                                  //  }
+                                    //notification if tag is not found
+                                    // else
+                                    //  {
+                                    //      MessageBox.Show($"No participant found for RFID: {rfidPart}");
+                                    //  }
                                 }
                             }
                             else
